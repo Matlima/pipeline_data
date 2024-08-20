@@ -25,7 +25,7 @@ def leitura_dados(path, tipo_arquivo):
     return dados
 
 def get_columns(dados):
-    return list(dados[0].keys())
+    return list(dados[-1].keys())
 
 def rename_columns(dados, key_mapping):
     new_dados_csv = []
@@ -44,6 +44,22 @@ def join(dadosA, dadosB):
     combined_list.extend(dadosA)
     combined_list.extend(dadosB)
     return combined_list
+
+def transformando_dados_tabela(dados, nomes_colunas):
+    dados_combinados_tabela = [nomes_colunas]
+    for row in dados:
+        linha = []
+        for coluna in nomes_colunas:
+            linha.append(row.get(coluna, 'Indisponivel'))
+        dados_combinados_tabela.append(linha)
+    return dados_combinados_tabela
+
+
+def salvando_dados(dados, path):
+    with open(path, 'w') as file:
+        writer = csv.writer(file)
+        writer.writerows(dados)
+
 
 path_json = 'data_raw/dados_empresaA.json'
 path_csv = 'data_raw/dados_empresaB.csv'
@@ -68,14 +84,25 @@ key_mapping = {'Nome do Item': 'Nome do Produto',
                'Nome da Loja': 'Filial',
                'Data da Venda': 'Data da Venda'}
 
+
 # Transformando dados:
 dados_csv = rename_columns(dados_csv, key_mapping)
 nome_colunas_csv = get_columns(dados_csv)
 print(nome_colunas_csv)
 
-# Unindo listas:
-dados_fusao = join(dados_json, dados_csv)
+dados_fusao = join(dados_csv, dados_json)
+nome_colunas_fusao = get_columns(dados_fusao)
 tamanho_dados_fusao = size_data(dados_fusao)
+print(nome_colunas_fusao)
 print(tamanho_dados_fusao)
+
+
+# Salvando dados:
+dados_fusao_tabela = transformando_dados_tabela(dados_fusao, nome_colunas_fusao)
+
+path_dados_combinados = 'data_processed/dados_combinados.csv'
+salvando_dados(dados_fusao_tabela, path_dados_combinados)
+print(path_dados_combinados)
+
 
 
