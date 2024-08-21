@@ -8,6 +8,7 @@ class Dados:
         self.tipo_dados = tipo_dados
         self.dados = self.leitura_dados()
         self.nome_colunas = self.get_columns()
+        self.qtd_linhas = self.size_data()
 
     def leitura_json(self):
         dados_json = []
@@ -48,4 +49,15 @@ class Dados:
         
         self.dados = new_dados
         self.nome_colunas = self.get_columns()
+
+    def size_data(self):
+        return len(self.dados)
+
+    def join(dadosA, dadosB):
+        combined_list = []
+        combined_list.extend(dadosA.dados)
+        combined_list.extend(dadosB.dados)
+        return combined_list
+    
+
 
