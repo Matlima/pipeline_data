@@ -16,13 +16,13 @@ Este projeto foi desenvolvido para criar um pipeline de dados eficiente e reutil
   - CSV: Para manipulação e leitura de arquivos CSV.
 - Programação Orientada a Objetos: Refatoração do pipeline em um script Python, utilizando classes e funções para modularidade e reutilização.
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 - data_pipeline.ipynb: Notebook Jupyter onde a exploração de dados inicial foi realizada, incluindo testes e validação do pipeline.
 - data_pipeline.py: Script Python refatorado que contém a implementação final do pipeline, utilizando programação orientada a objetos.
  - Pipeline Class: Classe principal que encapsula a lógica do pipeline de dados, tornando o processo mais organizado e reutilizável.
  - Funções Auxiliares: Conjunto de funções para manipulação de dados, leitura e escrita em JSON e CSV.
 
-# Como Executar
+## Como Executar
 - Exploração Inicial:
   - Abra o arquivo data_pipeline.ipynb no Jupyter Notebook.
   - Execute as células para explorar os dados e entender o fluxo do pipeline.
