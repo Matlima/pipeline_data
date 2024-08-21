@@ -1,6 +1,8 @@
 import json
 import csv
 
+from processamento_dados import Dados
+
 def leitura_json(path_json):
     dados_json = []
     with open(path_json, 'r') as file:
@@ -71,7 +73,15 @@ def salvando_dados(dados, path):
 path_json = 'data_raw/dados_empresaA.json'
 path_csv = 'data_raw/dados_empresaB.csv'
 
+dados_empresaA = Dados(path_json, 'json')
+print(dados_empresaA.dados)
 
+dados_empresaB = Dados(path_csv, 'csv')
+print(dados_empresaB.dados)
+
+
+
+'''
 # Iniciando a leitura
 dados_json = leitura_dados(path_json,'json')
 nome_colunas_json = get_columns(dados_json)
@@ -114,3 +124,4 @@ path_dados_combinados = 'data_processed/dados_combinados.csv'
 salvando_dados(dados_fusao_tabela, path_dados_combinados)
 
 print(path_dados_combinados)
+'''
