@@ -122,6 +122,11 @@ print(dados_fusao.nome_colunas)
 print('Quantidade de linhas:')
 print(dados_fusao.qtd_linhas)
 
+# Load
+
+path_dados_combinados = 'data_processed/dados_combinados.csv'
+dados_fusao.salvando_dados(path_dados_combinados)
+print(path_dados_combinados)
 
 
 '''
