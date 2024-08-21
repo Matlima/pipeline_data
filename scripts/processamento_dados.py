@@ -31,6 +31,10 @@ class Dados:
 
         elif self.tipo_dados == 'json':
             dados = self.leitura_json()
+        
+        elif self.tipo_dados == 'list':
+            dados = self.path
+            self.path = 'lista em memoria'
 
         return dados
 
@@ -57,7 +61,7 @@ class Dados:
         combined_list = []
         combined_list.extend(dadosA.dados)
         combined_list.extend(dadosB.dados)
-        return combined_list
+        return Dados(combined_list, 'list')
     
 
 

@@ -50,13 +50,13 @@ def rename_columns(dados, key_mapping):
 def size_data(dados):
     return len(dados)
 
-"""
 
 def join(dadosA, dadosB):
     combined_list = []
     combined_list.extend(dadosA)
     combined_list.extend(dadosB)
     return combined_list
+"""
 
 def transformando_dados_tabela(dados, nomes_colunas):
     
@@ -114,7 +114,13 @@ dados_empresaB.rename_columns(key_mapping)
 print('Colunas dos dados:')
 print(dados_empresaB.nome_colunas)
 
-
+print('Fusão de dados')
+dados_fusao = Dados.join(dados_empresaA, dados_empresaB)
+print(dados_fusao)
+print('Colunas dos dados:')
+print(dados_fusao.nome_colunas)
+print('Quantidade de linhas:')
+print(dados_fusao.qtd_linhas)
 
 
 
